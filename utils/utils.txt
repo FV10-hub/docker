@@ -5,3 +5,8 @@ docker run -p 8000:80 -d front
 docker build -t front .
 # para revisar el directorio
 docker container exec -it 051b bash
+
+
+# shell
+netstat -ano | findstr :8080
+taskkill /PID <PID> /F
