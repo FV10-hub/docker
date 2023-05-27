@@ -22,6 +22,12 @@ services:
     ports:
       - 4200:80  
     restart: always
+    volumes:
+      - D:\Sistema\docker\backend\reportes:/app/jasper
+#    environment:
+#      - JASPER_FILES_PATH=/app/jasper-files
+    networks:
+          - spring
 networks:
   spring:
     name: spring
