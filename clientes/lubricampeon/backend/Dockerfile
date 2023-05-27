@@ -1,3 +1,4 @@
+#los alphine son basados en debian no traen todas las librerias
 FROM openjdk:17
 
 # Instala las dependencias requeridas
