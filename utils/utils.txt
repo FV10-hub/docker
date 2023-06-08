@@ -5,8 +5,14 @@ docker run -p 8000:80 -d front
 docker build -t front .
 # para revisar el directorio
 docker container exec -it 051b bash
+docker system prune -a
+
 
 
 # shell
 netstat -ano | findstr :8080
 taskkill /PID <PID> /F
+
+netstat -ano | findstr :8080
+
+Error response from daemon: driver failed programming external connectivity on endpoint backend (36c5f88d444e9c93926314d6ecacb8932ff9a61932a8c7f327eba2652dbc6302): Bind for 0.0.0.0:8080 failed: port is already allocated
