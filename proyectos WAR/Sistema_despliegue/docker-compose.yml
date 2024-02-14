@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  capitalsys-web:
+    build:
+      #context: C:\Users\Elitebook\Desktop\proyecto\lubricampeon-erp esto si es pathabsoluto
+      context: ./front
+      dockerfile: ./Dockerfile
+      image: capitalsys-web-image
+    container_name: capitalsys-web-app
+    env_file:
+      - ./front/.env
+    ports:
+      - "8090:8090"
+    networks:
+      - spring
+  capitalsys-reportes:
+    build:
+      #context: C:\Users\Elitebook\Desktop\proyecto\lubricampeon-erp esto si es pathabsoluto
+      context: ./reportes
+      dockerfile: ./Dockerfile
+      image: capitalsys-reportes-image
+    container_name: capitalsys-reportes
+    env_file:
+      - ./reportes/.env
+    ports:
+      - "8080:8080"
+    #volumes:
+    #  - reportes-data:/app/jasper
+    networks:
+      - spring
+
+#descomentar esto si vas a usar volume
+#volumes:
+#  reportes-data:
+#    driver: local
+#    driver_opts:
+#      type: none
+#      o: bind
+#      device: D:\reportes          
+      
+networks:
+  spring:
+    name: spring
+    external: true      
