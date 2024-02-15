@@ -6,12 +6,12 @@ services:
       #context: C:\Users\Elitebook\Desktop\proyecto\lubricampeon-erp esto si es pathabsoluto
       context: ./front
       dockerfile: ./Dockerfile
-      image: capitalsys-web-image
     container_name: capitalsys-web-app
     env_file:
       - ./front/.env
     ports:
       - "8090:8090"
+    restart: always
     networks:
       - spring
   capitalsys-reportes:
@@ -19,12 +19,12 @@ services:
       #context: C:\Users\Elitebook\Desktop\proyecto\lubricampeon-erp esto si es pathabsoluto
       context: ./reportes
       dockerfile: ./Dockerfile
-      image: capitalsys-reportes-image
     container_name: capitalsys-reportes
     env_file:
       - ./reportes/.env
     ports:
       - "8080:8080"
+    restart: always  
     #volumes:
     #  - reportes-data:/app/jasper
     networks:
